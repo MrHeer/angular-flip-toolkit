@@ -11,7 +11,7 @@ import { FlipperService } from './flipper.service';
 import { FlipId, StaggerConfig, SpringOption } from './types';
 
 @Component({
-  selector: '[flipper]',
+  selector: 'flipper',
   template: '<ng-content *ngIf="ready"></ng-content>',
   providers: [FlipperService],
 })

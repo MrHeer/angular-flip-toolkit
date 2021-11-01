@@ -35,7 +35,7 @@ export class FlipperService {
   }
 
   addFlippedElement(options: FlippedProps & { element: HTMLElement }) {
-    this.flipInstance?.addFlipped(options);
+    this.flipInstance?.addFlipped(options as any);
   }
 
   addInvertedElement(options: {

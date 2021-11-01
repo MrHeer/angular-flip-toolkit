@@ -7,6 +7,7 @@ import { ListComponent } from './list/list.component';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { FlipAnimationModule } from 'flip-animation';
 
 @NgModule({
   declarations: [AppComponent, ListComponent],
@@ -16,6 +17,7 @@ import { MatCardModule } from '@angular/material/card';
     MatListModule,
     MatButtonModule,
     MatCardModule,
+    FlipAnimationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

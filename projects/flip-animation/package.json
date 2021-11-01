@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^12.2.0",
-    "@angular/core": "^12.2.0"
+    "@angular/core": "^12.2.0",
+    "flip-toolkit": "^7.0.13"
   },
-  "dependencies": {
-    "flip-toolkit": "^7.0.13",
-    "tslib": "^2.3.0"
+  "devDependencies": {
+    "@types/react": "^17.0.33"
   }
 }

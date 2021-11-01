@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FlippedProps } from 'dist/flip-animation/lib/types';
+
+interface Item {
+  id: number;
+  name: string;
+  age: string;
+}
 
 @Component({
   selector: 'app-list',
@@ -6,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  listData = [
+  listData: Array<Item> = [
     {
       id: 1,
       name: 'John',
@@ -40,5 +47,11 @@ export class ListComponent implements OnInit {
 
   shuffle() {
     this.listData.sort(() => Math.random() - 0.5);
+  }
+
+  flippedProps(item: Item): FlippedProps {
+    return {
+      flipId: item.id,
+    } as any;
   }
 }
