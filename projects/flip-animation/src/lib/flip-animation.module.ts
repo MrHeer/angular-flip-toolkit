@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { FlipAnimationDirective } from './flip-animation.directive';
+import { FlipperDirective } from './flipped.directive';
+import { FlipperComponent } from './flipper.component';
 
 @NgModule({
-  declarations: [FlipAnimationDirective],
+  declarations: [FlipperComponent, FlipperDirective],
   imports: [],
-  exports: [FlipAnimationDirective],
+  exports: [FlipperComponent, FlipperDirective],
 })
 export class FlipAnimationModule {}
