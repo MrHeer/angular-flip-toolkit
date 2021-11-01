@@ -1,0 +1,12 @@
+{
+  "name": "flip-animation",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^12.2.0",
+    "@angular/core": "^12.2.0"
+  },
+  "dependencies": {
+    "flip-toolkit": "^7.0.13",
+    "tslib": "^2.3.0"
+  }
+}
