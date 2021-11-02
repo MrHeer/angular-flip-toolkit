@@ -25,6 +25,8 @@ export class ExpandingDivComponent implements OnDestroy {
   textFlippedProps: FlippedProps = {
     inverseFlipId: 'text',
     translate: false,
+    scale: false,
+    opacity: false,
   };
 
   toggleFullScreen() {
