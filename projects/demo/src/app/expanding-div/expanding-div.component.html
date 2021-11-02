@@ -1,0 +1,12 @@
+<flipper class="container" [flipperProps]="flipperProps$ | async">
+  <div
+    [class]="(className$ | async) === 'square' ? 'square' : 'square big-square'"
+    flipped
+    [flippedProps]="flippedProps"
+    (click)="toggleFullScreen()"
+  >
+    <div class="inner-square" flipped [flippedProps]="textFlippedProps">
+      hi there
+    </div>
+  </div>
+</flipper>

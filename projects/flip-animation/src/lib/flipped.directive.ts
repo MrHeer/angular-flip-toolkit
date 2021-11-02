@@ -26,7 +26,7 @@ export class FlipperDirective implements OnInit {
           opacity: this.flippedProps.opacity ?? true,
           translate: this.flippedProps.translate ?? true,
           scale: this.flippedProps.scale ?? true,
-          transformOrigin: this.flippedProps.transformOrigin ?? 'center',
+          transformOrigin: this.flippedProps.transformOrigin ?? '',
         });
       }
     }
