@@ -54,4 +54,8 @@ export class ListComponent implements OnInit {
       flipId: item.id,
     } as any;
   }
+
+  flipId() {
+    return this.listData.map((item) => item.id).join('-');
+  }
 }

@@ -8,7 +8,6 @@ import { FlippedProps } from './types';
 export class FlipperDirective implements OnInit {
   @Input() flip?: FlippedProps;
   @Input() inverseFlip?: {
-    parent: HTMLElement;
     opacity: boolean;
     translate: boolean;
     scale: boolean;
@@ -26,6 +25,7 @@ export class FlipperDirective implements OnInit {
     } else if (this.inverseFlip) {
       this.flipperService.addInvertedElement({
         element: this.el.nativeElement,
+        parent: this.el.nativeElement.parentElement,
         ...this.inverseFlip,
       });
     }

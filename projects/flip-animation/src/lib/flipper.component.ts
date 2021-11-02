@@ -4,9 +4,12 @@ import {
   ElementRef,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   SimpleChanges,
 } from '@angular/core';
+import { Subject } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { FlipperService } from './flipper.service';
 import { FlipId, StaggerConfig, SpringOption } from './types';
 
@@ -16,13 +19,14 @@ import { FlipId, StaggerConfig, SpringOption } from './types';
   providers: [FlipperService],
 })
 export class FlipperComponent
-  implements OnInit, OnChanges, AfterContentChecked
+  implements OnInit, OnDestroy, OnChanges, AfterContentChecked
 {
   @Input() flipId?: FlipId;
   @Input() staggerConfig?: StaggerConfig;
   @Input() spring: SpringOption = 'noWobble';
 
-  ready: boolean = false;
+  ready = false;
+  afterViewChecked$: Subject<boolean> = new Subject();
 
   constructor(private el: ElementRef, private flipperService: FlipperService) {}
 
@@ -35,18 +39,21 @@ export class FlipperComponent
     this.ready = true;
   }
 
-  ngAfterContentChecked(): void {
-    this.flipperService.recordBeforeUpdate();
-  }
-
   ngOnChanges(changes: SimpleChanges): void {
+    this.flipperService.recordBeforeUpdate();
     if (changes.flipId) {
       const { currentValue, previousValue } = changes.flipId;
-      this.flipperService.update(previousValue, currentValue);
+      this.afterViewChecked$.pipe(take(1)).subscribe(() => {
+        this.flipperService.update(previousValue, currentValue);
+      });
     }
-    if (changes.staggerConfig) {
-      const { previousValue, currentValue } = changes.staggerConfig;
-      this.flipperService.update(previousValue, currentValue);
-    }
+  }
+
+  ngAfterContentChecked(): void {
+    this.afterViewChecked$.next(true);
+  }
+
+  ngOnDestroy(): void {
+    this.afterViewChecked$.unsubscribe();
   }
 }
