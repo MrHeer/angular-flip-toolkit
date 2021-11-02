@@ -1,6 +1,13 @@
 {
   "name": "flip-animation",
   "version": "0.0.1",
+  "license": "MIT",
+  "description": "flip-animation with Angular",
+  "keywords": [
+    "flip",
+    "angular",
+    "animation"
+  ],
   "peerDependencies": {
     "@angular/common": "^12.2.0",
     "@angular/core": "^12.2.0",
