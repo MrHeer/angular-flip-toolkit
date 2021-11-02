@@ -1,16 +1,16 @@
 {
-  "name": "@mrheer/flip-animation",
+  "name": "@mrheer/angular-flip-toolkit",
   "version": "0.0.1",
   "license": "MIT",
-  "description": "flip-animation with Angular",
-  "repository": "https://github.com/MrHeer/flip-animation",
+  "description": "angular-flip-toolkit with Angular",
+  "repository": "https://github.com/MrHeer/angular-flip-toolkit",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
   "keywords": [
-    "flip",
     "angular",
-    "animation"
+    "flip-animation",
+    "react-flip-toolkit"
   ],
   "peerDependencies": {
     "@angular/common": "^12.2.0",

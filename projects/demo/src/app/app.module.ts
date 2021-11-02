@@ -7,12 +7,17 @@ import { ListComponent } from './list/list.component';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { FlipAnimationModule } from 'flip-animation';
+import { FlipAnimationModule } from 'angular-flip-toolkit';
 import { ButtonComponent } from './button/button.component';
 import { ExpandingDivComponent } from './expanding-div/expanding-div.component';
 
 @NgModule({
-  declarations: [AppComponent, ListComponent, ButtonComponent, ExpandingDivComponent],
+  declarations: [
+    AppComponent,
+    ListComponent,
+    ButtonComponent,
+    ExpandingDivComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

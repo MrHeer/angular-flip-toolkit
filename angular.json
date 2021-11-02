@@ -3,22 +3,22 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "flip-animation": {
+    "angular-flip-toolkit": {
       "projectType": "library",
-      "root": "projects/flip-animation",
-      "sourceRoot": "projects/flip-animation/src",
+      "root": "projects/angular-flip-toolkit",
+      "sourceRoot": "projects/angular-flip-toolkit/src",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/flip-animation/ng-package.json"
+            "project": "projects/angular-flip-toolkit/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/flip-animation/tsconfig.lib.prod.json"
+              "tsConfig": "projects/angular-flip-toolkit/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/flip-animation/tsconfig.lib.json"
+              "tsConfig": "projects/angular-flip-toolkit/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -26,9 +26,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/flip-animation/src/test.ts",
-            "tsConfig": "projects/flip-animation/tsconfig.spec.json",
-            "karmaConfig": "projects/flip-animation/karma.conf.js"
+            "main": "projects/angular-flip-toolkit/src/test.ts",
+            "tsConfig": "projects/angular-flip-toolkit/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-flip-toolkit/karma.conf.js"
           }
         }
       }
@@ -136,7 +136,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "https://mrheer.github.io/flip-animation/",
+            "baseHref": "https://mrheer.github.io/angular-flip-toolkit/",
             "name": "MrHeer",
             "email": "team@angular.schule"
           }

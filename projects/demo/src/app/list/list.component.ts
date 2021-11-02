@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
-import { FlippedProps, FlipperProps } from 'dist/flip-animation/lib/types';
+import {
+  FlippedProps,
+  FlipperProps,
+} from 'dist/angular-flip-toolkit/lib/types';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 

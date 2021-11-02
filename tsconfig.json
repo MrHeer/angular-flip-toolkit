@@ -7,9 +7,9 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "paths": {
-      "flip-animation": [
-        "dist/flip-animation/flip-animation",
-        "dist/flip-animation"
+      "angular-flip-toolkit": [
+        "dist/angular-flip-toolkit/angular-flip-toolkit",
+        "dist/angular-flip-toolkit"
       ]
     },
     "noImplicitReturns": true,
