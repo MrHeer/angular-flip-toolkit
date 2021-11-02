@@ -1,8 +1,12 @@
 {
-  "name": "flip-animation",
+  "name": "@mrheer/flip-animation",
   "version": "0.0.1",
   "license": "MIT",
   "description": "flip-animation with Angular",
+  "repository": "https://github.com/MrHeer/flip-animation",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "keywords": [
     "flip",
     "angular",
