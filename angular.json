@@ -132,9 +132,17 @@
             "styles": ["projects/demo/src/styles.scss"],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://mrheer.github.io/flip-animation/",
+            "name": "MrHeer",
+            "email": "team@angular.schule"
+          }
         }
       }
     }
   },
-  "defaultProject": "flip-animation"
+  "defaultProject": "demo"
 }
