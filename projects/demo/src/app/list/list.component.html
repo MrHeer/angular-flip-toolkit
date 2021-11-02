@@ -1,8 +1,8 @@
 <button mat-raised-button (click)="shuffle()">Shuffle</button>
-<flipper [flipId]="flipId()">
+<flipper [flipperProps]="flipperProps$ | async">
   <mat-list>
-    <mat-list-item *ngFor="let item of listData">
-      <mat-card flipped [flip]="flippedProps(item)"
+    <mat-list-item *ngFor="let item of listData$ | async">
+      <mat-card flipped [flippedProps]="flippedProps(item)"
         >{{ item.id }}: {{ item.name }} - {{ item.age }}</mat-card
       >
     </mat-list-item>

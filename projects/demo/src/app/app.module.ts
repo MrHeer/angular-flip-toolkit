@@ -8,9 +8,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { FlipAnimationModule } from 'flip-animation';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
-  declarations: [AppComponent, ListComponent],
+  declarations: [AppComponent, ListComponent, ButtonComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

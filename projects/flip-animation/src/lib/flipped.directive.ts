@@ -6,28 +6,29 @@ import { FlippedProps } from './types';
   selector: '[flipped]',
 })
 export class FlipperDirective implements OnInit {
-  @Input() flip?: FlippedProps;
-  @Input() inverseFlip?: {
-    opacity: boolean;
-    translate: boolean;
-    scale: boolean;
-    transformOrigin: string;
-  };
+  @Input() flippedProps?: FlippedProps | null;
 
   constructor(private el: ElementRef, private flipperService: FlipperService) {}
 
   ngOnInit(): void {
-    if (this.flip) {
-      this.flipperService.addFlippedElement({
-        element: this.el.nativeElement,
-        ...this.flip,
-      });
-    } else if (this.inverseFlip) {
-      this.flipperService.addInvertedElement({
-        element: this.el.nativeElement,
-        parent: this.el.nativeElement.parentElement,
-        ...this.inverseFlip,
-      });
+    if (this.flippedProps) {
+      const { flipId, inverseFlipId } = this.flippedProps;
+      if (flipId) {
+        this.flipperService.addFlippedElement({
+          element: this.el.nativeElement,
+          ...this.flippedProps,
+        });
+      }
+      if (inverseFlipId) {
+        this.flipperService.addInvertedElement({
+          element: this.el.nativeElement,
+          parent: this.el.nativeElement.parentElement,
+          opacity: this.flippedProps.opacity ?? true,
+          translate: this.flippedProps.translate ?? true,
+          scale: this.flippedProps.scale ?? true,
+          transformOrigin: this.flippedProps.transformOrigin ?? 'center',
+        });
+      }
     }
   }
 }

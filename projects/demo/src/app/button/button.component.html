@@ -1,0 +1,12 @@
+<flipper [flipperProps]="flipperProps$ | async">
+  <button
+    flipped
+    [flippedProps]="buttonFlippedProps"
+    mat-raised-button
+    (click)="toggleText()"
+  >
+    <span flipped [flippedProps]="textFlippedProps">
+      {{ buttonText$ | async }}
+    </span>
+  </button>
+</flipper>

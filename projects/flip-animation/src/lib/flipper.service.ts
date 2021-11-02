@@ -3,6 +3,7 @@ import { Flipper } from 'flip-toolkit';
 import {
   FlippedProps,
   HandleEnterUpdateDelete,
+  InverseFlippedProps,
   OnFlipperComplete,
   SpringOption,
   StaggerConfig,
@@ -38,14 +39,12 @@ export class FlipperService {
     this.flipInstance?.addFlipped(options as any);
   }
 
-  addInvertedElement(options: {
-    element: HTMLElement;
-    parent: HTMLElement;
-    opacity: boolean;
-    translate: boolean;
-    scale: boolean;
-    transformOrigin: string;
-  }) {
+  addInvertedElement(
+    options: InverseFlippedProps & {
+      element: HTMLElement;
+      parent: HTMLElement;
+    }
+  ) {
     this.flipInstance?.addInverted(options);
   }
 }

@@ -1,5 +1,6 @@
 import {
-  AfterContentChecked,
+  AfterViewChecked,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   Input,
@@ -11,19 +12,18 @@ import {
 import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { FlipperService } from './flipper.service';
-import { FlipId, StaggerConfig, SpringOption } from './types';
+import { FlipperProps } from './types';
 
 @Component({
   selector: 'flipper',
   template: '<ng-content *ngIf="ready"></ng-content>',
   providers: [FlipperService],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FlipperComponent
-  implements OnInit, OnDestroy, OnChanges, AfterContentChecked
+  implements OnInit, OnDestroy, OnChanges, AfterViewChecked
 {
-  @Input() flipId?: FlipId;
-  @Input() staggerConfig?: StaggerConfig;
-  @Input() spring: SpringOption = 'noWobble';
+  @Input() flipperProps?: FlipperProps | null;
 
   ready = false;
   afterViewChecked$: Subject<boolean> = new Subject();
@@ -33,23 +33,33 @@ export class FlipperComponent
   ngOnInit(): void {
     this.flipperService.init({
       element: this.el.nativeElement,
-      staggerConfig: this.staggerConfig,
-      spring: this.spring,
+      ...this.flipperProps,
     });
     this.ready = true;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.flipperService.recordBeforeUpdate();
-    if (changes.flipId) {
-      const { currentValue, previousValue } = changes.flipId;
-      this.afterViewChecked$.pipe(take(1)).subscribe(() => {
-        this.flipperService.update(previousValue, currentValue);
-      });
+    if (changes.flipperProps) {
+      const { previousValue, currentValue } = changes.flipperProps;
+      if (previousValue) {
+        const { flipKey: previousFlipKey, decisionData: previousDecisionData } =
+          previousValue;
+        const { flipKey: currentFlipKey, decisionData: currentDecisionData } =
+          currentValue;
+        if (previousFlipKey !== currentFlipKey) {
+          this.flipperService.recordBeforeUpdate();
+          this.afterViewChecked$.pipe(take(1)).subscribe(() => {
+            this.flipperService.update(
+              previousDecisionData ?? previousFlipKey,
+              currentDecisionData ?? currentFlipKey
+            );
+          });
+        }
+      }
     }
   }
 
-  ngAfterContentChecked(): void {
+  ngAfterViewChecked(): void {
     this.afterViewChecked$.next(true);
   }
 

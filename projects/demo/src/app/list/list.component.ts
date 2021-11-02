@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FlippedProps } from 'dist/flip-animation/lib/types';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { FlippedProps, FlipperProps } from 'dist/flip-animation/lib/types';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 interface Item {
   id: number;
@@ -11,9 +13,10 @@ interface Item {
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListComponent implements OnInit {
-  listData: Array<Item> = [
+export class ListComponent implements OnDestroy {
+  listData$: BehaviorSubject<Array<Item>> = new BehaviorSubject([
     {
       id: 1,
       name: 'John',
@@ -39,23 +42,27 @@ export class ListComponent implements OnInit {
       name: 'Peter',
       age: '60',
     },
-  ];
+  ]);
 
-  constructor() {}
+  flipperProps$: Observable<FlipperProps> = this.listData$.pipe(
+    map((list) => ({
+      flipKey: list.map((item) => item.id).join('-'),
+    }))
+  );
 
-  ngOnInit(): void {}
+  ngOnDestroy(): void {
+    this.listData$.unsubscribe();
+  }
 
   shuffle() {
-    this.listData.sort(() => Math.random() - 0.5);
+    const listData = this.listData$.getValue();
+    const nextListData = [...listData].sort(() => 0.5 - Math.random());
+    this.listData$.next(nextListData);
   }
 
   flippedProps(item: Item): FlippedProps {
     return {
       flipId: item.id,
-    } as any;
-  }
-
-  flipId() {
-    return this.listData.map((item) => item.id).join('-');
+    };
   }
 }
