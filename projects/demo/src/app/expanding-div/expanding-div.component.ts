@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import {
   FlippedProps,
   FlipperProps,
@@ -12,6 +12,7 @@ type SquareClassName = 'big-square' | 'square';
   selector: 'app-expanding-div',
   templateUrl: './expanding-div.component.html',
   styleUrls: ['./expanding-div.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpandingDivComponent implements OnDestroy {
   className$: BehaviorSubject<SquareClassName> = new BehaviorSubject(

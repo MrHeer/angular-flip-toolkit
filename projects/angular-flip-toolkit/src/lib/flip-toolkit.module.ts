@@ -8,4 +8,4 @@ import { FlipperComponent } from './flipper.component';
   imports: [CommonModule],
   exports: [FlipperComponent, FlipperDirective],
 })
-export class FlipAnimationModule {}
+export class FlipToolkitModule {}

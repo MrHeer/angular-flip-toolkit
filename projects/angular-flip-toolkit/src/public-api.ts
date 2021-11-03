@@ -4,4 +4,4 @@
 
 export * from './lib/flipper.component';
 export * from './lib/flipped.directive';
-export * from './lib/angular-flip-toolkit.module';
+export * from './lib/flip-toolkit.module';
