@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ButtonComponent } from './button/button.component';
 import { ExpandingDivComponent } from './expanding-div/expanding-div.component';
 import { ListComponent } from './list/list.component';
+import { NavComponent } from './nav/nav.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/list',
+    component: NavComponent,
     pathMatch: 'full',
   },
 ];

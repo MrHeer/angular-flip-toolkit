@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FlipToolkitModule } from 'angular-flip-toolkit';
 import { ButtonComponent } from './button/button.component';
 import { ExpandingDivComponent } from './expanding-div/expanding-div.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ExpandingDivComponent } from './expanding-div/expanding-div.component';
     ListComponent,
     ButtonComponent,
     ExpandingDivComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
