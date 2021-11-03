@@ -1,11 +1,24 @@
 <div class="container">
   <flipper [flipperProps]="flipperProps$ | async">
-    <button mat-raised-button (click)="shuffle()">Shuffle</button>
+    <div>
+      <button mat-raised-button (click)="shuffle()">Shuffle</button>
+      <button mat-raised-button (click)="reset()">Reset</button>
+    </div>
     <mat-list>
       <mat-list-item *ngFor="let item of listData$ | async">
-        <mat-card flipped [flippedProps]="flippedProps(item)"
-          >{{ item.id }}: {{ item.name }} - {{ item.age }}</mat-card
-        >
+        <mat-card flipped [flippedProps]="flippedProps(item)">
+          <mat-card-content>
+            <button
+              mat-icon-button
+              color="warn"
+              aria-label="delete"
+              (click)="removeItem(item)"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+            <span> {{ item.id }}: {{ item.name }} - {{ item.age }} </span>
+          </mat-card-content>
+        </mat-card>
       </mat-list-item>
     </mat-list>
   </flipper>

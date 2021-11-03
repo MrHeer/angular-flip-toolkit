@@ -1,8 +1,11 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons&display=block");
+
 * {
   box-sizing: border-box;
 }
 
 body {
+  font-family: Roboto, Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;

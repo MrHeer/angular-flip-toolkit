@@ -7,6 +7,7 @@ import { ListComponent } from './list/list.component';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { FlipToolkitModule } from 'angular-flip-toolkit';
 import { ButtonComponent } from './button/button.component';
 import { ExpandingDivComponent } from './expanding-div/expanding-div.component';
@@ -24,6 +25,7 @@ import { ExpandingDivComponent } from './expanding-div/expanding-div.component';
     MatListModule,
     MatButtonModule,
     MatCardModule,
+    MatIconModule,
     FlipToolkitModule,
   ],
   providers: [],

@@ -10,8 +10,6 @@ flipper {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 500px;
-  width: 700px;
 }
 
 mat-list-item {
@@ -20,4 +18,16 @@ mat-list-item {
 
 mat-card {
   width: 100%;
+}
+
+.mat-button-base:not(.mat-icon-button) {
+  margin: 8px 8px 8px 0;
+}
+
+.mat-list-item {
+  height: auto !important;
+}
+
+.mat-card {
+  padding: 8px;
 }
