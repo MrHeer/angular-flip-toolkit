@@ -1,11 +1,17 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import {
+  AfterViewChecked,
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+} from '@angular/core';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import {
   FlippedProps,
   FlipperProps,
 } from 'dist/angular-flip-toolkit/lib/types';
 import { spring } from 'flip-toolkit';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { map, take } from 'rxjs/operators';
 
 interface Item {
   id: number;
@@ -71,8 +77,9 @@ const onExit: FlippedProps['onExit'] = (el, index, removeElement) => {
   styleUrls: ['./list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListComponent implements OnDestroy {
+export class ListComponent implements AfterViewChecked, OnDestroy {
   listData$: BehaviorSubject<Array<Item>> = new BehaviorSubject([...INIT_DATA]);
+  afterViewChecked$: Subject<boolean> = new Subject();
 
   flipperProps$: Observable<FlipperProps> = this.listData$.pipe(
     map((list) => ({
@@ -82,6 +89,7 @@ export class ListComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.listData$.unsubscribe();
+    this.afterViewChecked$.unsubscribe();
   }
 
   shuffle() {
@@ -107,5 +115,17 @@ export class ListComponent implements OnDestroy {
       onExit: onExit,
       delayUntil: item.id,
     };
+  }
+
+  ngAfterViewChecked(): void {
+    this.afterViewChecked$.next(true);
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    const listData = this.listData$.getValue();
+    moveItemInArray(listData, event.previousIndex, event.currentIndex);
+    this.afterViewChecked$.pipe(take(1)).subscribe(() => {
+      this.listData$.next(listData);
+    });
   }
 }
