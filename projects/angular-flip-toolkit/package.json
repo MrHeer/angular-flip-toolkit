@@ -9,8 +9,8 @@
   },
   "keywords": [
     "angular",
-    "flip-animation",
-    "react-flip-toolkit"
+    "flip-toolkit",
+    "angular-flip-toolkit"
   ],
   "peerDependencies": {
     "@angular/common": "^12.2.0",
