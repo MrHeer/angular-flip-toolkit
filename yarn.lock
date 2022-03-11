@@ -135,12 +135,12 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/cdk@12.2.12":
-  version "12.2.12"
-  resolved "http://registry.npm.sbuild.cn:80/@angular%2fcdk/-/cdk-12.2.12.tgz#61dda37d8900275790da623c1f83daa1e859c795"
-  integrity sha512-AK+74JZP95BDj9OJ1YUaRqPXkgs+oadTk7z+8omu1RcvDoUivouKxgODCQX5jI7rZeQIlnV49hEgBne07hYk4A==
+"@angular/cdk@13.2.6":
+  version "13.2.6"
+  resolved "https://registry.npmjs.org/@angular/cdk/-/cdk-13.2.6.tgz#4a5cf4b93ccad4123e09a6cbe2c880bb6f3242fe"
+  integrity sha512-epuXmaHqfukwPsYvIksbuHLXDtb6GALV2Vgv6W2asj4TorD584CeQTs0EcdPGmCzhGUYI8U8QV63WOxu9YFcNA==
   dependencies:
-    tslib "^2.2.0"
+    tslib "^2.3.0"
   optionalDependencies:
     parse5 "^5.0.0"
 
@@ -213,12 +213,12 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/material@12.2.12":
-  version "12.2.12"
-  resolved "http://registry.npm.sbuild.cn:80/@angular%2fmaterial/-/material-12.2.12.tgz#66add3fb649422128b3273c10b9b7cce2f77e0cf"
-  integrity sha512-Fgpffplmd3KfoK9Ms34jYXRaqFYLbgXdGl250Acg7fV16LN1KTOyYm2Qs+FQuqyhuXfhePPt6Srh7VcGTLT4+g==
+"@angular/material@13.2.6":
+  version "13.2.6"
+  resolved "https://registry.npmjs.org/@angular/material/-/material-13.2.6.tgz#615ad63453cd4122ab1775b077e8122c932cab06"
+  integrity sha512-/h5wa/tXE0DMIIEQX+rozFkUWHYUWg1Xf1R2tXUFLslLQ0KRCGyNo225Sv/1wrxXHxfrML787lA9ex4p90Feqw==
   dependencies:
-    tslib "^2.2.0"
+    tslib "^2.3.0"
 
 "@angular/platform-browser-dynamic@~13.2.6":
   version "13.2.6"
@@ -6924,7 +6924,7 @@ trim-repeated@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.2"
 
-tslib@2.3.1, tslib@^2.0.0, tslib@^2.1.0, tslib@^2.2.0, tslib@^2.3.0:
+tslib@2.3.1, tslib@^2.0.0, tslib@^2.1.0, tslib@^2.3.0:
   version "2.3.1"
   resolved "http://registry.npm.sbuild.cn:80/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
   integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
