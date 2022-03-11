@@ -13,11 +13,13 @@
     "angular-flip-toolkit"
   ],
   "peerDependencies": {
-    "@angular/common": "^12.2.0",
-    "@angular/core": "^12.2.0",
-    "flip-toolkit": "^7.0.13"
+    "@angular/common": "^13.2.6",
+    "@angular/core": "^13.2.6"
   },
   "devDependencies": {
-    "@types/react": "^17.0.33"
+    "@types/react": "^17.0.40"
+  },
+  "dependencies": {
+    "flip-toolkit": "^7.0.13"
   }
 }
